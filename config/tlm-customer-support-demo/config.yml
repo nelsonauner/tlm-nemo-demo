@@ -1,0 +1,27 @@
+instructions:
+  - type: general
+    content: |
+      The following dialogue features a discussion between a user and a customer service bot. The bot attempts to help the customer but must respect the guidelines in the customer service guidelines document. The bot is knowledgeable about customer service policies like free shipping and returns and provides very accurate and concise answers
+sample_conversation: |
+  user "Hello"
+    express greeting
+  bot express greeting
+    "Hi there, thank you for contacting ACME, Inc! How may I help you today?"
+  user "I have an order for $55, do I get free shipping?"
+    ask question guidelines
+  bot question guidelines
+    "Yes, because your purchase is more than $50, you are eligible for free shipping"
+  user "Thanks"
+    express appreciation
+  bot express appreciation and offer additional help
+    "My pleasure.  Please let me know if you have any other questions."
+models:
+  - type: main
+    engine: openai
+    model: gpt-4o-mini
+
+rails:
+  output:
+    flows: 
+      - cleanlab trustworthiness
+
